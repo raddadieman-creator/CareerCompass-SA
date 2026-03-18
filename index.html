@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="بوصلة القرار المهني 2030 — نظام تفاعلي لدعم القرار المهني لطلاب المرحلة الثانوية">
+  <title>بوصلة القرار المهني 2030 | CareerCompass-SA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ══════════════════════ HEADER ══════════════════════ -->
+  <header class="header">
+    <div class="logo-wrap">
+      <div class="logo-orbit"></div>
+      <div class="logo-core">🧭</div>
+    </div>
+    <h1>بوصلة القرار المهني</h1>
+    <p class="tagline">نظام دعم قرار مهني تفاعلي · رؤية 2030 · Prototype v2.0</p>
+    <div class="researcher-badge">👩‍🔬 الباحثة: إيمان عبد العزيز الردادي</div>
+  </header>
+
+  <!-- ══════════════════════ WELCOME ══════════════════════ -->
+  <div class="welcome" id="welcome-card">
+    <span class="w-icon">🌟</span>
+    <h2>أهلاً بك في <em>بوصلة القرار المهني 2030</em></h2>
+    <p class="welcome-desc">
+      هذه الأداة صُممت لمساعدتك على اكتشاف ميولك المهنية وتقييم جاهزيتك لاتخاذ قراراتك المستقبلية.<br>
+      ستتفاعلين مع مساعد ذكي يرافقك لفهم ميولك واختيار مسارك المهني المناسب.
+    </p>
+    <div class="highlight-box">
+      💬 عزيزتي الطالبة، عزيزي الطالب — الرجاء قراءة الخيارات بعناية ثم اختيار ما يناسبك. لا توجد إجابة صح أو خطأ.
+    </div>
+    <div class="journey-steps">
+      <div class="jstep">🧭 12 سؤال للميول</div>
+      <div class="jstep">📊 7 أسئلة للجاهزية</div>
+      <div class="jstep">🔮 6 أسئلة لرؤية 2030</div>
+      <div class="jstep">📋 تقرير احترافي</div>
+    </div>
+    <p class="researcher-line">الباحثة: إيمان عبد العزيز الردادي</p>
+    <button class="btn btn-gold" onclick="APP.startJourney()">✨ ابدأ رحلتك الآن</button>
+  </div>
+
+  <!-- ══════════════════════ PROGRESS BAR ══════════════════════ -->
+  <div class="progress-wrap" id="progress-wrap" style="display:none;">
+    <div class="progress-labels">
+      <span class="pstep" id="s1l"><span class="pdot"></span>بياناتك</span>
+      <span class="pstep" id="s2l"><span class="pdot"></span>الميول</span>
+      <span class="pstep" id="s3l"><span class="pdot"></span>الجاهزية</span>
+      <span class="pstep" id="s4l"><span class="pdot"></span>رؤية 2030</span>
+      <span class="pstep" id="s5l"><span class="pdot"></span>تقريرك</span>
+    </div>
+    <div class="pbar"><div class="pfill" id="pf" style="width:20%"></div></div>
+  </div>
+
+  <!-- ══════════════════════ SECTION 1: Basic Info ══════════════════════ -->
+  <div class="section" id="section-1">
+    <div class="card">
+      <div class="card-accent ca-gold"></div>
+      <div class="card-title">
+        <div class="cticon ct-gold">📝</div>
+        بياناتك الأساسية
+      </div>
+      <div class="gbar" id="gbar" style="display:none;">
+        <span>✨</span><span id="gtxt"></span>
+      </div>
+      <div class="fg">
+        <div class="field">
+          <label for="fn">الاسم الكامل</label>
+          <input type="text" id="fn" placeholder="اكتب اسمك" oninput="APP.updateGreeting()">
+        </div>
+        <div class="field">
+          <label for="fg2">الجنس</label>
+          <select id="fg2" onchange="APP.updateGreeting()">
+            <option value="">اختر</option>
+            <option value="طالبة">طالبة</option>
+            <option value="طالب">طالب</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <div class="field">
+          <label for="fsc">المدرسة</label>
+          <input type="text" id="fsc" placeholder="اسم المدرسة">
+        </div>
+        <div class="field">
+          <label for="fgr">الصف الدراسي</label>
+          <select id="fgr">
+            <option value="">اختر</option>
+            <option>أول ثانوي</option>
+            <option>ثاني ثانوي</option>
+            <option>ثالث ثانوي</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg fg1">
+        <div class="field">
+          <label for="fmj">المسار الدراسي</label>
+          <select id="fmj">
+            <option value="">اختر</option>
+            <option>مسار عام</option>
+            <option>مسار صحة وحياة</option>
+            <option>مسار هندسة</option>
+            <option>مسار شريعة</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="APP.goToSection(2)">ابدأ الاستكشاف ←</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SECTION 2: Holland (12 Qs) ══════════════════════ -->
+  <div class="section" id="section-2">
+    <div class="card">
+      <div class="card-accent ca-gold"></div>
+      <div class="card-title">
+        <div class="cticon ct-gold">🧭</div>
+        مساعدك لاكتشاف ميولك المهنية
+        <span class="tag tag-gold">12 سؤال</span>
+      </div>
+      <div id="quiz-shell-2"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SECTION 3: Maturity (7 Qs) ══════════════════════ -->
+  <div class="section" id="section-3">
+    <div class="card">
+      <div class="card-accent ca-teal"></div>
+      <div class="card-title">
+        <div class="cticon ct-teal">📊</div>
+        مساعدك لقياس جاهزيتك المهنية
+        <span class="tag tag-teal">7 أسئلة</span>
+      </div>
+      <div id="quiz-shell-3"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SECTION 4: Vision 2030 (6 Qs) ══════════════════════ -->
+  <div class="section" id="section-4">
+    <div class="card">
+      <div class="card-accent ca-purple"></div>
+      <div class="card-title">
+        <div class="cticon ct-purple">🔮</div>
+        مساعدك للتوجيه وفق رؤية 2030
+        <span class="tag tag-teal">6 أسئلة</span>
+      </div>
+      <div id="quiz-shell-4"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SECTION 5: Final Report ══════════════════════ -->
+  <div class="section" id="section-5">
+
+    <!-- Hero: Holland Code -->
+    <div class="card">
+      <div class="card-accent ca-gold"></div>
+      <div class="result-hero">
+        <div class="rh-label" id="rh-label"></div>
+        <div class="rh-code"  id="rh-code"></div>
+        <div class="rh-name"  id="rh-name"></div>
+        <div class="rh-badge" id="rh-badge"></div>
+        <p class="rh-desc"    id="rh-desc"></p>
+      </div>
+      <div class="card-title" style="margin-top:1.25rem;margin-bottom:.75rem;">
+        <div class="cticon ct-gold">🏅</div>أعلى 3 أنماط لديك
+      </div>
+      <div class="top3-grid" id="top3-grid"></div>
+      <div id="clarity-box"></div>
+      <div class="card-title" style="margin-top:1.25rem;margin-bottom:.75rem;font-size:.95rem;">
+        <div class="cticon ct-gold" style="width:30px;height:30px;">📊</div>توزيع الدرجات على الأنماط الستة
+      </div>
+      <div class="riasec-chart" id="riasec-chart"></div>
+    </div>
+
+    <!-- Career Readiness -->
+    <div class="card">
+      <div class="card-accent ca-teal"></div>
+      <div class="card-title"><div class="cticon ct-teal">📋</div>مستوى الجاهزية المهنية</div>
+      <div class="match-section" id="maturity-bars"></div>
+      <div class="card-title" style="margin-top:1.25rem;margin-bottom:.75rem;font-size:.92rem;">
+        <div class="cticon ct-teal" style="width:30px;height:30px;">💡</div>نقاط القوة والمجالات التي تحتاج دعماً
+      </div>
+      <div class="maturity-breakdown" id="maturity-breakdown"></div>
+      <div id="maturity-message" style="margin-top:.85rem;font-size:.855rem;color:var(--text2);line-height:1.7;padding:.85rem 1rem;background:rgba(255,255,255,.03);border-radius:12px;border:1px solid rgba(255,255,255,.06);"></div>
+    </div>
+
+    <!-- Analysis -->
+    <div class="card">
+      <div class="card-accent ca-purple"></div>
+      <div class="card-title"><div class="cticon ct-purple">🧠</div>تحليل شخصيتك المهنية</div>
+      <div id="analysis-text" style="font-size:.88rem;color:var(--text2);line-height:1.8;background:rgba(139,92,246,.04);border:1px solid rgba(139,92,246,.12);border-radius:14px;padding:1.1rem 1.25rem;"></div>
+    </div>
+
+    <!-- Sectors -->
+    <div class="card">
+      <div class="card-accent ca-teal"></div>
+      <div class="card-title"><div class="cticon ct-teal">🏢</div>القطاعات المناسبة لك</div>
+      <p class="section-sub">قطاعات سوق العمل السعودي الأكثر توافقاً مع ميولك ضمن أولويات رؤية 2030:</p>
+      <div class="sectors-grid" id="sectors-grid"></div>
+    </div>
+
+    <!-- Jobs -->
+    <div class="card">
+      <div class="card-accent ca-teal"></div>
+      <div class="card-title"><div class="cticon ct-teal">💼</div>أبرز 5 وظائف مستقبلية مناسبة لك</div>
+      <div class="jobs-grid" id="jobs-grid"></div>
+    </div>
+
+    <!-- Specializations -->
+    <div class="card">
+      <div class="card-accent ca-purple"></div>
+      <div class="card-title"><div class="cticon ct-purple">🎓</div>أفضل 5 تخصصات جامعية موصى بها</div>
+      <div class="specs-list" id="specs-list"></div>
+    </div>
+
+    <!-- Action Step -->
+    <div class="card">
+      <div class="card-accent ca-green"></div>
+      <div class="card-title"><div class="cticon ct-green">🚀</div>الخطوة العملية التالية</div>
+      <div class="action-box">
+        <div class="action-title">🎯 توصيتنا لك</div>
+        <div class="action-text" id="action-text"></div>
+      </div>
+    </div>
+
+    <!-- Full Summary + Submit -->
+    <div class="card">
+      <div class="card-accent ca-gold"></div>
+      <div class="card-title"><div class="cticon ct-gold">📋</div>ملخص التقرير الكامل</div>
+      <div class="summary-grid" id="summary-grid"></div>
+      <div class="divider"></div>
+      <div class="disclaimer">
+        ⚠️ <strong>تنبيه مهم:</strong> نتائج هذه الأداة داعمة وإرشادية وليست حكماً على قدراتك أو مستقبلك.
+        هي نقطة انطلاق للحوار مع المرشد المهني، وليست بديلاً عن الإرشاد المتخصص.
+        تذكر أن الميول قابلة للتطور والتغيير مع الوقت والخبرة.
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="window.print()">🖨️ طباعة التقرير</button>
+        <button class="btn btn-teal" onclick="APP_API.submitResults()">📤 أرسل للمرشد</button>
+      </div>
+    </div>
+
+  </div><!-- end section-5 -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    بوصلة القرار المهني 2030 · نظام دعم قرار مهني تفاعلي<br>
+    <strong>الباحثة: إيمان عبد العزيز الردادي</strong>
+  </footer>
+
+</div><!-- end container -->
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<!-- Load order matters: config → data → logic -->
+<script src="config.example.js"></script>  <!-- rename to config.js in production -->
+<script src="js/questions.js"></script>
+<script src="js/results.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
