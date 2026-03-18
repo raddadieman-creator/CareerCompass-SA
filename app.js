@@ -16,8 +16,8 @@
 // ─────────────────────────────────────────────────────────
 //  APP — core state and navigation
 // ─────────────────────────────────────────────────────────
-const APP = (() => {
-
+window.APP = (() => {
+  
   // ── Application state ──────────────────────────────────
   const state = {
     user: { name: "", gender: "", school: "", grade: "", major: "" },
